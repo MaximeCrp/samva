@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private EventAdapter eventsAdapter;
     private ArrayList<Event> events = new ArrayList<>();
     private List<Event> eventbis;
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    MapsFragment mapsFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        mapsFragment = new MapsFragment();
+        Bundle bundleEvents = new Bundle();
+        //bundlePrintCellar.putSerializable("events", events);
+        mapsFragment.setArguments(bundleEvents);
+        fragmentTransaction.add(R.id.container, mapsFragment);
+        fragmentTransaction.commit();
     }
 
     public void initlayout() {
