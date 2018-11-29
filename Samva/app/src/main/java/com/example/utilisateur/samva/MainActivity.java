@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
     FragmentTransaction fragmentTransaction;
     MapsFragment mapsFragment;
     ListFragment listFragment;
+    FragmentTest testFragment;
 
 
 
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
                 Toast toast = Toast.makeText(context, "requête réussie, nb de events : "+ events.size(), Toast.LENGTH_LONG);
                 toast.show();
 
+                createFragment();
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -71,21 +74,40 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
                 toast.show();
             }
         });
+    }
 
+    public void createFragment() {
+
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "test :  "+ this.events.size(), Toast.LENGTH_LONG);
+        toast.show();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         mapsFragment = new MapsFragment();
         listFragment = new ListFragment();
+        testFragment = new FragmentTest();
+
         Bundle bundleEvents = new Bundle();
-        //bundlePrintCellar.putSerializable("events", events);
-        mapsFragment.setArguments(bundleEvents);
-        fragmentTransaction.add(R.id.container, mapsFragment);
+        bundleEvents.putSerializable("EVENTS_LIST", this.events);
+        listFragment.setArguments(bundleEvents);
+
+
+        //fragmentTransaction.add(R.id.container, mapsFragment);
+        fragmentTransaction.add(R.id.container, listFragment);
         fragmentTransaction.commit();
+
     }
 
     public void details(Event event) {
-        Intent intent = new Intent(MainActivity.this, EventActivity.class);
+/*
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, this.testFragment);
+        fragmentTransaction.addToBackStack("tag");
+        fragmentTransaction.commit();
+*/
+
+        Intent intent = new Intent(this, EventActivity.class);
         intent.putExtra("EVENT_CLICK", event);
-        startActivity(intent);
+        this.startActivity(intent);
     }
 }
