@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class EventActivity extends AppCompatActivity implements MyActivityCallback{
 
        private FragmentManager fragmentManager;
-       private ListFragment listFragment;
+       private DetailsFragment detailsFragment;
        private CreationFragment creationFragment;
 
        private Event event;
@@ -25,12 +25,12 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        listFragment = new ListFragment();
+        detailsFragment = new DetailsFragment();
         creationFragment = new CreationFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("EVENT",event);
-        listFragment.setArguments(bundle);
-        fragmentTransaction.add(R.id.container, listFragment);
+        detailsFragment.setArguments(bundle);
+        fragmentTransaction.add(R.id.container, detailsFragment);
         fragmentTransaction.commit();
 
     }
@@ -54,7 +54,7 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
     public void addTravel(Travel travel) {
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, this.listFragment);
+        fragmentTransaction.replace(R.id.container, this.detailsFragment);
         fragmentTransaction.addToBackStack("tag");
         fragmentTransaction.commit();
 

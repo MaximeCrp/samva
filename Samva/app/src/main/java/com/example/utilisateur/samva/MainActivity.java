@@ -24,7 +24,7 @@ import java.util.List;
 
 import retrofit2.Retrofit;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainActivityCallback{
 
     private Retrofit retrofit;
     private RecyclerView rcvEvents;
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     MapsFragment mapsFragment;
+    ListFragment listFragment;
+
 
 
     @Override
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(context, "requête réussie, nb de events : "+ events.size(), Toast.LENGTH_LONG);
                 toast.show();
 
-                initlayout();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         mapsFragment = new MapsFragment();
+        listFragment = new ListFragment();
         Bundle bundleEvents = new Bundle();
         //bundlePrintCellar.putSerializable("events", events);
         mapsFragment.setArguments(bundleEvents);
@@ -81,32 +83,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void initlayout() {
-
-        rcvEvents = findViewById(R.id.a_main_rcv_events);
-        rcvEvents.setHasFixedSize(true);
-        // use a linear layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        rcvEvents.setLayoutManager(layoutManager);
-
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "init layout "+ events.size(), Toast.LENGTH_LONG);
-        toast.show();
-
-        // specify an adapter (see also next example)
-        eventsAdapter = new EventAdapter(events);
-        rcvEvents.setAdapter(eventsAdapter);
-
-        rcvEvents.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-
-                Intent intent = new Intent(MainActivity.this, EventActivity.class);
-                intent.putExtra("EVENT_CLICK", events.get(position));
-                startActivity(intent);
-            }
-        }));
-
-
+    public void details(Event event) {
+        Intent intent = new Intent(MainActivity.this, EventActivity.class);
+        intent.putExtra("EVENT_CLICK", event);
+        startActivity(intent);
     }
 }
