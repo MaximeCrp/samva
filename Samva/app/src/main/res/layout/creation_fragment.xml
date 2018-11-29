@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="292dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <EditText
+        android:id="@+id/sam_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="47dp" />
+
+
+    <EditText
+        android:id="@+id/depart_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Depart Place"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/sam_name"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <EditText
+        android:id="@+id/return_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Return Place"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/depart_time"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <EditText
+        android:id="@+id/depart_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="time"
+        android:hint="Depart time : HH:mm"
+        app:layout_constraintTop_toBottomOf="@+id/depart_place"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <EditText
+        android:id="@+id/return_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="time"
+        android:hint="Return Time : HH:mm"
+        app:layout_constraintTop_toBottomOf="@+id/return_place"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <EditText
+        android:id="@+id/nb_places"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Nb de places dipsonibles"
+        app:layout_constraintTop_toBottomOf="@+id/return_time"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+
+        tools:layout_editor_absoluteX="279dp"
+        tools:layout_editor_absoluteY="446dp" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "256503325640",
+    "firebase_url": "https://samva-14ae6.firebaseio.com",
+    "project_id": "samva-14ae6",
+    "storage_bucket": "samva-14ae6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256503325640:android:f15ac5eee465aa41",
+        "android_client_info": {
+          "package_name": "com.example.utilisateur.samva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256503325640-204hl1cde959ktjv19618eimbcf8cmk0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.utilisateur.samva",
+            "certificate_hash": "52295bc680718d16b034ddae96dfde5bd4bdfc34"
+          }
+        },
+        {
+          "client_id": "256503325640-nqb7dskpfl9jupnsvjf1v2fi56kinh8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhufs2w5TT_c7MqW0VaWGPrzp8J5DTT5A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256503325640-nqb7dskpfl9jupnsvjf1v2fi56kinh8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
