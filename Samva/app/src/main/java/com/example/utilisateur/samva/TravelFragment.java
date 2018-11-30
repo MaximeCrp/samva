@@ -78,8 +78,10 @@ public class TravelFragment extends Fragment {
         return_time.setText(strDate);
         String passengers = "";
 
-        for(String str : travel.getPassengers()) {
-            passengers+=str + "\n";
+        if(travel.getPassengers() != null) {
+            for (String str : travel.getPassengers()) {
+                passengers += str + "\n";
+            }
         }
 
         passengers_names.setText(passengers);

@@ -40,10 +40,10 @@ public class Event implements Serializable {
         return timetable;
     }
 
-    public void setTimetable(String timetable) throws ParseException {
+    public void setTimetable(String timetable) {
         this.timetable = timetable;
+        putDate(timetable);
 
-        //putDate();
 
         /*
         String[] enter = timetable.split(";");
@@ -95,30 +95,29 @@ public class Event implements Serializable {
 
         this.date = date;
     }
-/*
-    public void putDate() throws ParseException {
-        String[] enter = timetable.split(";");
+
+    public void putDate(String timetable){
+        this.date = new String[2][2];
+        String[] enter = new String[2];
+        if(timetable.contains(";")) {
+            enter = timetable.split(";");
+        }
+        else {
+            enter[0] = timetable;
+        }
         String[][] enter2 = new String[enter.length][2];
-        SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm");
 
         for (int i = 0; i < enter.length; i++) {
-            String[] date = enter[i].split(" ");
-            this.date[i][0] = date[0];
-            this.date[i][1] = date[1];
+            String[] date1 = enter[i].split(" ");
+            enter2[i][0] = date1[0];
+            enter2[i][1] = date1[1];
+            //enter2[i][0].replace("T"," ");
+            //enter2[i][1].replace("T"," ");
+            this.date[i][0] = enter2[i][0].replace("T"," ");
+            this.date[i][1] = enter2[i][1].replace("T"," ");
 
-            //this.date[i][0] = sdf.parse(enter2[i][0]);
-            //this.date[i][1] = sdf.parse(enter2[i][1]);
         }
-
-
-        String date = departTime.getText().toString();
-        Date date1 = null;
-        try {
-            date1 = sdf.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }*/
+    }
 
 
 }

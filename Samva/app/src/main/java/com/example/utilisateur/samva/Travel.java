@@ -3,6 +3,7 @@ package com.example.utilisateur.samva;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Travel implements Serializable {
@@ -15,6 +16,7 @@ public class Travel implements Serializable {
     private Date departTime;
     private Date returnTime;
     private ArrayList<String> passengers ;
+
 
     Travel() {}
 
@@ -51,7 +53,7 @@ public class Travel implements Serializable {
 
     public void setNbPlaces(int nbPlaces) {
         this.nbPlaces = nbPlaces;
-        passengers = new ArrayList<String>(nbPlaces);
+        //passengers = new ArrayList<String>(nbPlaces);
     }
 
     public String getDepartPlace() {
@@ -86,7 +88,14 @@ public class Travel implements Serializable {
         this.returnTime = returnTime;
     }
 
-    public void setPassengers(ArrayList<String> passengers) { this.passengers = passengers;}
+    public ArrayList<String> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(ArrayList<String> passengers) {
+        this.passengers = passengers;
+    }
+
 
     public boolean addPassenger(String name) {
         if(nbPlaces>0) {
@@ -99,7 +108,4 @@ public class Travel implements Serializable {
 
     }
 
-    public ArrayList<String> getPassengers() {
-        return this.passengers;
-    }
 }

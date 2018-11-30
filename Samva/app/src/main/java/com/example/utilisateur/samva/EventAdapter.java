@@ -39,7 +39,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
         //String strDate = dateFormat.format(eventToDisplay.getDate()[0][0]);
         holder.txvName.setText(eventToDisplay.getTitle());
-        holder.txvDate.setText(eventToDisplay.getTimetable());
+        String text="";
+        for(int i=0 ; i<eventToDisplay.getDate().length ; i++) {
+            text+= eventToDisplay.getDate()[i][0] + " - " + eventToDisplay.getDate()[i][1] + "\n";
+        }
+        holder.txvDate.setText(text);
 
         }
 
