@@ -8,88 +8,112 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="292dp"
+        android:layout_width="295dp"
         android:layout_height="59dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="47dp" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
 
     <EditText
         android:id="@+id/sam_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:layout_editor_absoluteX="47dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
     <EditText
         android:id="@+id/depart_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Depart Place"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/sam_name"
-        tools:layout_editor_absoluteX="47dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sam_name" />
 
     <EditText
         android:id="@+id/return_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Return Place"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/depart_time"
-        tools:layout_editor_absoluteX="47dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/depart_time" />
 
     <EditText
         android:id="@+id/depart_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
         android:ems="10"
-        android:inputType="time"
         android:hint="Depart time : HH:mm"
-        app:layout_constraintTop_toBottomOf="@+id/depart_place"
-        tools:layout_editor_absoluteX="47dp" />
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/depart_place" />
 
     <EditText
         android:id="@+id/return_time"
-        android:layout_width="wrap_content"
+        android:layout_width="214dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
         android:ems="10"
-        android:inputType="time"
         android:hint="Return Time : HH:mm"
-        app:layout_constraintTop_toBottomOf="@+id/return_place"
-        tools:layout_editor_absoluteX="47dp" />
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/return_place" />
 
     <EditText
         android:id="@+id/nb_places"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="Nb de places dipsonibles"
-        app:layout_constraintTop_toBottomOf="@+id/return_time"
-        tools:layout_editor_absoluteX="47dp" />
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/return_time" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:layout_marginStart="8dp"
 
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="446dp" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nb_places" />
 
 
 </android.support.constraint.ConstraintLayout>
