@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class DetailsFragment extends Fragment {
 
     private MyActivityCallback activity;
@@ -43,6 +45,10 @@ public class DetailsFragment extends Fragment {
         date.setText(event.getTimetable());
         placename.setText(event.getPlacename());
         address.setText(event.getAddress());
+
+        /*
+        Context context = getContext();
+        Picasso.with(context).load(event.getImage()).into(image);*/
 /*
         try {
             URL url = new URL(event.getImage());
