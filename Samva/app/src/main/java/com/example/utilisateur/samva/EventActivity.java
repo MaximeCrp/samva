@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventActivity extends AppCompatActivity implements MyActivityCallback{
@@ -22,6 +23,7 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
        private FragmentManager fragmentManager;
        private DetailsFragment detailsFragment;
        private CreationFragment creationFragment;
+       private TravelFragment travelFragment;
 
        private Event event;
 
@@ -29,14 +31,17 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
        private FirebaseDatabase database = FirebaseDatabase.getInstance();
        private DatabaseReference myRef;
 
+       private int position;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
         event = (Event) getIntent().getSerializableExtra("EVENT_CLICK");
+
         travelList = new TravelList();
-        this.travelList.setTitle(event.getTitle());
+        travelList.setTitle(event.getTitle());
 
         myRef = database.getReference("travels/" + event.getTitle());
         myRef.addValueEventListener(new ValueEventListener() {
@@ -48,13 +53,11 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
                 if(list != null) {
                     travelList.setList(list.getList());
                 }
-/*
-                for(Event e : eventbis) {
-                    events.add(e);
-                }*/
+
+                /*
                 Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, "requête réussie, nb de events : " + travelList.getList().size(), Toast.LENGTH_LONG);
-                toast.show();
+                Toast toast = Toast.makeText(context, "requête réussie, nb de travels : " + travelList.getList().size(), Toast.LENGTH_LONG);
+                toast.show();*/
 
                 createFragment();
             }
@@ -68,9 +71,6 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
             }
         });
     }
-
-
-
 
 public void createFragment() {
 
@@ -118,10 +118,43 @@ public void createFragment() {
 
         myRef = database.getReference("travels/"+name);
         myRef.setValue(travelList);
-
+/*
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, "trajet ajouté : "+ travel.getTitle() + " - " + travel.getSam(), Toast.LENGTH_LONG);
-        toast.show();
+        toast.show();*/
+
+    }
+
+    public void travelDetails(Travel travel, int position) {
+
+        this.position = position;
+
+        travelFragment = new TravelFragment();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, this.travelFragment);
+        fragmentTransaction.addToBackStack("tag");
+        fragmentTransaction.commit();
+
+        Bundle bundleEvents = new Bundle();
+        bundleEvents.putSerializable("TRAVEL", travel);
+        travelFragment.setArguments(bundleEvents);
+
+    }
+
+    public void passengerAdded(Travel travel) {
+        travelFragment = new TravelFragment();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, this.detailsFragment);
+        fragmentTransaction.addToBackStack("tag");
+        fragmentTransaction.commit();
+        detailsFragment.notifyDataChanged(travel, this.position);
+
+        travelList.getList().set(position, travel);
+        String name = travelList.getTitle();
+
+        myRef = database.getReference("travels/"+name);
+        myRef.setValue(travelList);
+
 
     }
 }

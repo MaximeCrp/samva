@@ -2,6 +2,7 @@ package com.example.utilisateur.samva;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TravelList implements Serializable {
 
@@ -34,4 +35,5 @@ public class TravelList implements Serializable {
     public void addTravel(Travel travel) {
         this.list.add(travel);
     }
+
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DetailsFragment extends Fragment {
 
@@ -53,6 +54,10 @@ public class DetailsFragment extends Fragment {
         event = (Event) bundle.getSerializable("EVENT");
         travels = (TravelList) bundle.getSerializable("TRAVEL_LIST");
 
+        Context context = getContext();
+        /*Toast toast = Toast.makeText(context, "trajet reçu : "+ travels.getTitle(), Toast.LENGTH_LONG);
+        toast.show();*/
+
 
         title.setText(event.getTitle());
         date.setText(event.getTimetable());
@@ -60,7 +65,7 @@ public class DetailsFragment extends Fragment {
         address.setText(event.getAddress());
 
         // use a linear layout manager
-        Context context = getContext();
+        //Context context = getContext();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         rcvTravels.setLayoutManager(layoutManager);
 
@@ -73,26 +78,9 @@ public class DetailsFragment extends Fragment {
             public void onItemClick(View view, int position) {
 
                 //lancer la page détails du trajet et ajout d'une personne
-                // activity.details(eventList.get(position));
-                Context context = getContext();
-                Toast toast = Toast.makeText(context, "trajet ajouté : "+ travels.getList().get(position).getSam() + " - " +  travels.getList().get(position).getNbPlaces(), Toast.LENGTH_LONG);
-                toast.show();
+                 activity.travelDetails(travels.getList().get(position), position);
             }
         }));
-
-        /*
-        Context context = getContext();
-        Picasso.with(context).load(event.getImage()).into(image);*/
-/*
-        try {
-            URL url = new URL(event.getImage());
-            Bitmap bmimage = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            image.setImageBitmap(bmimage);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +89,12 @@ public class DetailsFragment extends Fragment {
             }
         });
 
-
         return rootview;
+    }
+
+    public void notifyDataChanged(Travel travel, int position) {
+        travels.getList().set(position, travel);
+        travelsAdapter.notifyDataSetChanged();
     }
 
     public void onAttach(Context context) {

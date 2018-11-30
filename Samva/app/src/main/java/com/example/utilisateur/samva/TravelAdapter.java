@@ -9,14 +9,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TravelAdapter extends RecyclerView.Adapter<TravelViewHolder> {
 
-    private List<Travel> travels;
+    private ArrayList<Travel> travels;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public TravelAdapter(List<Travel> travels) {
+    public TravelAdapter(ArrayList<Travel> travels) {
         this.travels = travels;
     }
 

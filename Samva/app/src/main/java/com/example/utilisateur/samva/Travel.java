@@ -1,6 +1,7 @@
 package com.example.utilisateur.samva;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -13,11 +14,11 @@ public class Travel implements Serializable {
     private String returnPlace;
     private Date departTime;
     private Date returnTime;
-    private String[] passengers;
+    private ArrayList<String> passengers ;
 
     Travel() {}
 
-    Travel(String title, String sam, int nb, Date departTime, String departPlace, Date returnTime, String returnPlace) {
+    Travel(String title, String sam, int nb, Date departTime, String departPlace, Date returnTime, String returnPlace, ArrayList<String> passengers) {
         this.title = title;
         this.sam = sam;
         this.nbPlaces = nb;
@@ -25,6 +26,7 @@ public class Travel implements Serializable {
         this.departPlace = departPlace;
         this.returnTime = returnTime;
         this.returnPlace = returnPlace;
+        this.passengers = passengers;
     }
 
     public String getTitle() {
@@ -49,6 +51,7 @@ public class Travel implements Serializable {
 
     public void setNbPlaces(int nbPlaces) {
         this.nbPlaces = nbPlaces;
+        passengers = new ArrayList<String>(nbPlaces);
     }
 
     public String getDepartPlace() {
@@ -83,9 +86,11 @@ public class Travel implements Serializable {
         this.returnTime = returnTime;
     }
 
+    public void setPassengers(ArrayList<String> passengers) { this.passengers = passengers;}
+
     public boolean addPassenger(String name) {
         if(nbPlaces>0) {
-            passengers[nbPlaces] = name;
+            passengers.add(name);
             nbPlaces--;
             return true;
         }
@@ -94,4 +99,7 @@ public class Travel implements Serializable {
 
     }
 
+    public ArrayList<String> getPassengers() {
+        return this.passengers;
+    }
 }

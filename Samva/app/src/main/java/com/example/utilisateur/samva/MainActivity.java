@@ -59,10 +59,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
                     events.add(e);
                 }
 
-                Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, "requête réussie, nb de events : "+ events.size(), Toast.LENGTH_LONG);
-                toast.show();
-
                 createFragment();
 
             }
@@ -105,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
         fragmentTransaction.addToBackStack("tag");
         fragmentTransaction.commit();
 */
+
 
         Intent intent = new Intent(this, EventActivity.class);
         intent.putExtra("EVENT_CLICK", event);

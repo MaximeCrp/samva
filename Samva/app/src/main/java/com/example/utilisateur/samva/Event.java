@@ -1,5 +1,8 @@
 package com.example.utilisateur.samva;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -12,9 +15,10 @@ public class Event implements Serializable {
 
     private String title;
     private String timetable;
-    private Date[][] date; //tableau à 2 dimmensions : 1 ligne correspond à une occurence de l'événement
+   // private Date[][] date; //tableau à 2 dimmensions : 1 ligne correspond à une occurence de l'événement
     //les deux colonnes correspondent à la date de début et celle de fin
     private String address;
+    private String[][] date;
     private String image;
     private String placename;
     private ArrayList<Double> latlon;
@@ -83,26 +87,38 @@ public class Event implements Serializable {
         this.latlon = latlon;
     }
 
-    public Date[][] getDate() {
+    public String[][] getDate() {
         return date;
     }
 
-    public void setDate(Date date[][]) {
+    public void setDate(String date[][]) {
 
         this.date = date;
     }
-
+/*
     public void putDate() throws ParseException {
         String[] enter = timetable.split(";");
         String[][] enter2 = new String[enter.length][2];
+        SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm");
+
         for (int i = 0; i < enter.length; i++) {
             String[] date = enter[i].split(" ");
-            enter2[i][0] = date[0];
-            enter2[i][1] = date[1];
-            this.date[i][0] = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(enter2[i][0]);
-            this.date[i][1] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(enter2[i][1]);
+            this.date[i][0] = date[0];
+            this.date[i][1] = date[1];
+
+            //this.date[i][0] = sdf.parse(enter2[i][0]);
+            //this.date[i][1] = sdf.parse(enter2[i][1]);
         }
-    }
+
+
+        String date = departTime.getText().toString();
+        Date date1 = null;
+        try {
+            date1 = sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }*/
 
 
 }
