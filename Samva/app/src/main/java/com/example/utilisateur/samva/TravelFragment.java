@@ -96,15 +96,14 @@ public class TravelFragment extends Fragment {
             public void onClick(View v) {
 
                     if(travel.getNbPlaces()> 0) {
-                        if(yourname.getText().toString()!= "") {
-                            toast = Toast.makeText(context, "Champ saisi" + yourname.getText().toString() + "-", Toast.LENGTH_LONG);
-                            toast.show();
-                            travel.addPassenger(yourname.getText().toString());
-                            activity.passengerAdded(travel);
-                        }
-                        else {
+                        if(yourname.getText().toString().isEmpty()) {
                             toast = Toast.makeText(context, "Veuillez entrer un nom", Toast.LENGTH_LONG);
                             toast.show();
+
+                        }
+                        else{
+                            travel.addPassenger(yourname.getText().toString());
+                            activity.passengerAdded(travel);
                         }
                     }
                     else {
