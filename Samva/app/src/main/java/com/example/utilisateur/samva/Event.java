@@ -97,8 +97,8 @@ public class Event implements Serializable {
     }
 
     public void putDate(String timetable){
-        this.date = new String[2][2];
-        String[] enter = new String[2];
+
+        String[] enter = new String[1];
         if(timetable.contains(";")) {
             enter = timetable.split(";");
         }
@@ -106,16 +106,16 @@ public class Event implements Serializable {
             enter[0] = timetable;
         }
         String[][] enter2 = new String[enter.length][2];
+        this.date = new String[enter.length][2];
 
         for (int i = 0; i < enter.length; i++) {
             String[] date1 = enter[i].split(" ");
-            enter2[i][0] = date1[0];
-            enter2[i][1] = date1[1];
+            //enter2[i][0] = date1[0];
+            //enter2[i][1] = date1[1];
             //enter2[i][0].replace("T"," ");
             //enter2[i][1].replace("T"," ");
-            this.date[i][0] = enter2[i][0].replace("T"," ");
-            this.date[i][1] = enter2[i][1].replace("T"," ");
-
+            this.date[i][0] = date1[0].replace("T"," à ");
+            this.date[i][1] = date1[1].replace("T"," à ");
         }
     }
 
