@@ -12,6 +12,7 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
        private FragmentManager fragmentManager;
        private DetailsFragment detailsFragment;
        private CreationFragment creationFragment;
+       private FragmentTest testFragment;
 
        private Event event;
 
@@ -27,6 +28,8 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
 
         detailsFragment = new DetailsFragment();
         creationFragment = new CreationFragment();
+        testFragment = new FragmentTest();
+
         Bundle bundle = new Bundle();
         bundle.putSerializable("EVENT",event);
         detailsFragment.setArguments(bundle);

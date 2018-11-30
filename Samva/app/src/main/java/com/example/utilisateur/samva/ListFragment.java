@@ -30,12 +30,19 @@ public class ListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.event_details, container, false);
+        View rootview = inflater.inflate(R.layout.list_fragment, container, false);
 
         rcvEvents = rootview.findViewById(R.id.a_main_rcv_events);
-        rcvEvents.setHasFixedSize(true);
-        // use a linear layout manager
+
+        Bundle bundleEvents = new Bundle();
+        bundleEvents= getArguments();
+        eventList = (ArrayList<Event>) bundleEvents.getSerializable("EVENTS_LIST");
+
         Context context = getContext();
+        Toast toast = Toast.makeText(context, "Taille de la liste reçue : " + eventList.size(), Toast.LENGTH_LONG);
+        toast.show();
+
+        // use a linear layout manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         rcvEvents.setLayoutManager(layoutManager);
 
@@ -56,7 +63,7 @@ public class ListFragment extends Fragment {
 
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof MyActivityCallback) {
+        if (context instanceof MainActivityCallback) {
             activity = (MainActivityCallback) context;
         } else {
             throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
