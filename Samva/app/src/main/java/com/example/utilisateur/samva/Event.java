@@ -21,7 +21,7 @@ public class Event implements Serializable {
     private String[][] date;
     private String image;
     private String placename;
-    private ArrayList<Double> latlon;
+    private ArrayList<Double> latlon = new ArrayList<Double>();
     //private Date date;
 
 

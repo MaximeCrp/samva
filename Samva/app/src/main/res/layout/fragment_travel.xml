@@ -77,9 +77,9 @@
         android:id="@+id/passengers_names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="48dp"
         android:text="Passengers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sam" />
@@ -90,17 +90,17 @@
         android:layout_height="34dp"
         android:layout_marginStart="88dp"
         android:layout_marginLeft="88dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="15dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/return_place"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passengers_names"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
 
     <TextView
         android:id="@+id/return_place"
@@ -119,15 +119,15 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/depart_place"
-        app:layout_constraintTop_toBottomOf="@+id/passengers_names" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/return_time"
@@ -143,10 +143,10 @@
         android:inputType="time"
         app:layout_constraintBottom_toTopOf="@+id/add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/return_place"
         app:layout_constraintTop_toBottomOf="@+id/depart_time"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <ImageView
         android:id="@+id/logo_sam"
@@ -180,14 +180,14 @@
         android:layout_height="34dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="244dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Départ : "
         app:layout_constraintEnd_toStartOf="@+id/depart_place"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passengers_names" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"

@@ -94,14 +94,23 @@ public class TravelFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(travel.getNbPlaces()> 0) {
-                    travel.addPassenger(yourname.getText().toString());
-                    activity.passengerAdded(travel);
-                }
-                else {
-                    toast = Toast.makeText(context, "Ce trajet est plein", Toast.LENGTH_LONG);
-                    toast.show();
-                }
+
+                    if(travel.getNbPlaces()> 0) {
+                        if(yourname.getText().toString()!= "") {
+                            toast = Toast.makeText(context, "Champ saisi" + yourname.getText().toString() + "-", Toast.LENGTH_LONG);
+                            toast.show();
+                            travel.addPassenger(yourname.getText().toString());
+                            activity.passengerAdded(travel);
+                        }
+                        else {
+                            toast = Toast.makeText(context, "Veuillez entrer un nom", Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    }
+                    else {
+                        toast = Toast.makeText(context, "Ce trajet est plein", Toast.LENGTH_LONG);
+                        toast.show();
+                 }
             }
         });
 

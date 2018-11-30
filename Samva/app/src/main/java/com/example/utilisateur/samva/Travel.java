@@ -15,7 +15,7 @@ public class Travel implements Serializable {
     private String returnPlace;
     private Date departTime;
     private Date returnTime;
-    private ArrayList<String> passengers ;
+    private ArrayList<String> passengers  = new ArrayList<String>();
 
 
     Travel() {}
