@@ -1,8 +1,10 @@
 package com.example.utilisateur.samva;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Event implements Serializable {
 
@@ -10,13 +12,13 @@ public class Event implements Serializable {
 
     private String title;
     private String timetable;
-    //private Date[][] date; //tableau à 2 dimmensions : 1 ligne correspond à une occurence de l'événement
-    //ldes deux colonnes correspondent à la date de début et celle de fin
+    private Date[][] date; //tableau à 2 dimmensions : 1 ligne correspond à une occurence de l'événement
+    //les deux colonnes correspondent à la date de début et celle de fin
     private String address;
     private String image;
     private String placename;
     private ArrayList<Double> latlon;
-    private Date date;
+    //private Date date;
 
 
 
@@ -34,8 +36,10 @@ public class Event implements Serializable {
         return timetable;
     }
 
-    public void setTimetable(String timetable){
+    public void setTimetable(String timetable) throws ParseException {
         this.timetable = timetable;
+
+        //putDate();
 
         /*
         String[] enter = timetable.split(";");
@@ -79,12 +83,25 @@ public class Event implements Serializable {
         this.latlon = latlon;
     }
 
-    public Date getDate() {
+    public Date[][] getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Date date[][]) {
+
         this.date = date;
+    }
+
+    public void putDate() throws ParseException {
+        String[] enter = timetable.split(";");
+        String[][] enter2 = new String[enter.length][2];
+        for (int i = 0; i < enter.length; i++) {
+            String[] date = enter[i].split(" ");
+            enter2[i][0] = date[0];
+            enter2[i][1] = date[1];
+            this.date[i][0] = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(enter2[i][0]);
+            this.date[i][1] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(enter2[i][1]);
+        }
     }
 
 

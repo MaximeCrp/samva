@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -59,13 +60,17 @@ public class CreationFragment extends Fragment {
                 travel.setNbPlaces(Integer.parseInt(nbPlaces.getText().toString()));
 
                 String date = departTime.getText().toString();
-                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 Date date1 = null;
                 try {
                     date1 = sdf.parse(date);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+                Context context = getContext();
+                Toast toast = Toast.makeText(context, "heure de départ : " + date1.toString(), Toast.LENGTH_LONG);
+                toast.show();
+
                 travel.setDepartTime(date1);
 
                 date = returnTime.getText().toString();

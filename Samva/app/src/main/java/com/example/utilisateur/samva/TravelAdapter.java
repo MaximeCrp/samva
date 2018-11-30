@@ -36,7 +36,7 @@ public class TravelAdapter extends RecyclerView.Adapter<TravelViewHolder> {
         // - replace the contents of the view with that element
         Travel travelToDisplay = this.travels.get(position);
 
-        DateFormat dateFormat = new SimpleDateFormat("h:mm a");
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
         String strDate = dateFormat.format(travelToDisplay.getDepartTime());
         holder.sam_name.setText(travelToDisplay.getSam());
         holder.depart_place.setText(travelToDisplay.getDepartPlace());

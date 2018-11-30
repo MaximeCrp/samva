@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.DateFormat;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
@@ -34,7 +37,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         Event eventToDisplay = this.events.get(position);
 
         //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        //String strDate = dateFormat.format(eventToDisplay.getTimetable());
+        //String strDate = dateFormat.format(eventToDisplay.getDate()[0][0]);
         holder.txvName.setText(eventToDisplay.getTitle());
         holder.txvDate.setText(eventToDisplay.getTimetable());
 
