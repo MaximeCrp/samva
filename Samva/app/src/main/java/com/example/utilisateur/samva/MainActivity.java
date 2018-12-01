@@ -7,12 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -27,20 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Retrofit;
-
 public class MainActivity extends AppCompatActivity implements MainActivityCallback, TabLayout.OnTabSelectedListener{
 
-    private Retrofit retrofit;
-    private RecyclerView rcvEvents;
-    private EventAdapter eventsAdapter;
     private ArrayList<Event> events = new ArrayList<>();
     private List<Event> eventbis;
-
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    MapsFragment mapsFragment;
-    ListFragment listFragment;
 
     private TabLayout tabLayout;
     private StatePagerAdapterFragment statePagerAdapterFragment;
@@ -77,24 +64,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
         });
     }
 
-    public void createFragment() {
-
-        Context context = getApplicationContext();
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        mapsFragment = new MapsFragment();
-        listFragment = new ListFragment();
-
-        Bundle bundleEvents = new Bundle();
-        bundleEvents.putSerializable("EVENTS_LIST", this.events);
-        listFragment.setArguments(bundleEvents);
-
-
-        //fragmentTransaction.add(R.id.container, mapsFragment);
-        fragmentTransaction.add(R.id.container, listFragment);
-        fragmentTransaction.commit();
-
-    }
 
     public void details(Event event) {
         Intent intent = new Intent(this, EventActivity.class);

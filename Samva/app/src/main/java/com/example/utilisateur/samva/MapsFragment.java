@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -26,7 +25,6 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
 
     View rootView;
     private GoogleMap gMap;
-    Context context = getContext();
     private SupportMapFragment mSupportMapFragment;
 
     ArrayList<Event> eventList;

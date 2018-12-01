@@ -52,7 +52,6 @@ public class Travel implements Serializable {
 
     public void setNbPlaces(int nbPlaces) {
         this.nbPlaces = nbPlaces;
-        //passengers = new ArrayList<String>(nbPlaces);
     }
 
     public String getDepartPlace() {

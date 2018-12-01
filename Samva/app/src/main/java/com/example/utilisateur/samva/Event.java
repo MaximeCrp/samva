@@ -45,21 +45,6 @@ public class Event implements Serializable, ClusterItem {
         return timetable;
     }
 
-    public void setTimetable(String timetable) {
-        this.timetable = timetable;
-        putDate(timetable);
-
-
-        /*
-        String[] enter = timetable.split(";");
-        for (int i = 0; i < enter.length; i++) {
-            String[] date = enter[i].split(" ");
-            this.date[i][0] = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(date[0]);
-            this.date[i][1] = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(date[1]);
-        }*/
-
-    }
-
     public String getAddress() {
         return address;
     }
@@ -110,7 +95,6 @@ public class Event implements Serializable, ClusterItem {
         else {
             enter[0] = timetable;
         }
-        String[][] enter2 = new String[enter.length][2];
         this.date = new String[enter.length][2];
 
         for (int i = 0; i < enter.length; i++) {
