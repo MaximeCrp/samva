@@ -3,13 +3,16 @@ package com.example.utilisateur.samva;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.clustering.ClusterItem;
+
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Event implements Serializable {
+public class Event implements Serializable, ClusterItem {
 
 
 
@@ -28,8 +31,18 @@ public class Event implements Serializable {
 
     Event() {}
 
+    @Override
+    public LatLng getPosition() {
+        return new LatLng(latlon.get(0), latlon.get(1));
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String getSnippet() {
+        return placename;
     }
 
     public void setTitle(String title) {

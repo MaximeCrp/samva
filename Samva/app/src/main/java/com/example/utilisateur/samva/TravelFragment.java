@@ -78,8 +78,10 @@ public class TravelFragment extends Fragment {
         return_time.setText(strDate);
         String passengers = "";
 
-        for(String str : travel.getPassengers()) {
-            passengers+=str + "\n";
+        if(travel.getPassengers() != null) {
+            for (String str : travel.getPassengers()) {
+                passengers += str + "\n";
+            }
         }
 
         passengers_names.setText(passengers);
@@ -92,9 +94,17 @@ public class TravelFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(travel.getNbPlaces()> 0) {
-                    travel.addPassenger(yourname.getText().toString());
-                    activity.passengerAdded(travel);
+                    if(yourname.getText().toString().isEmpty()) {
+                        toast = Toast.makeText(context, "Veuillez entrer un nom", Toast.LENGTH_LONG);
+                        toast.show();
+
+                    }
+                    else{
+                        travel.addPassenger(yourname.getText().toString());
+                        activity.passengerAdded(travel);
+                    }
                 }
                 else {
                     toast = Toast.makeText(context, "Ce trajet est plein", Toast.LENGTH_LONG);

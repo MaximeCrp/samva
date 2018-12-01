@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ListFragment extends Fragment {
@@ -27,6 +28,8 @@ public class ListFragment extends Fragment {
 
     private ArrayList<Event> eventList = new ArrayList<Event>();
 
+    private static final String ARG_EVENTS ="EVENTS";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,9 +37,14 @@ public class ListFragment extends Fragment {
 
         rcvEvents = rootview.findViewById(R.id.a_main_rcv_events);
 
+        /*
         Bundle bundleEvents = new Bundle();
         bundleEvents= getArguments();
         eventList = (ArrayList<Event>) bundleEvents.getSerializable("EVENTS_LIST");
+        */
+        Serializable ser = getArguments().getSerializable(ARG_EVENTS);
+        eventList = (ArrayList<Event>) ser;
+
 
         Context context = getContext();
         Toast toast = Toast.makeText(context, "Taille de la liste reçue : " + eventList.size(), Toast.LENGTH_LONG);
@@ -68,6 +76,15 @@ public class ListFragment extends Fragment {
         } else {
             throw new RuntimeException(context.toString() + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    public static ListFragment newInstance(ArrayList<Event> events) {
+
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_EVENTS, events);
+        ListFragment fragment = new ListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 }
