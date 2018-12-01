@@ -6,10 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.DateFormat;
 import java.util.List;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 

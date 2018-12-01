@@ -15,9 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Ref;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EventActivity extends AppCompatActivity implements MyActivityCallback{
 

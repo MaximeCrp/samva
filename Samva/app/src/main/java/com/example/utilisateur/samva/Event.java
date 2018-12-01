@@ -1,16 +1,10 @@
 package com.example.utilisateur.samva;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.clustering.ClusterItem;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
 public class Event implements Serializable, ClusterItem {
 
