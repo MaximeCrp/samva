@@ -33,8 +33,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         // - replace the contents of the view with that element
         Event eventToDisplay = this.events.get(position);
 
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        //String strDate = dateFormat.format(eventToDisplay.getDate()[0][0]);
         holder.txvName.setText(eventToDisplay.getTitle());
         String text="";
         for(int i=0 ; i<eventToDisplay.getDate().length ; i++) {
