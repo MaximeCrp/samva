@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,10 +35,7 @@ public class ListFragment extends Fragment {
         Serializable ser = getArguments().getSerializable(ARG_EVENTS);
         eventList = (ArrayList<Event>) ser;
 
-
         Context context = getContext();
-        Toast toast = Toast.makeText(context, "Taille de la liste reçue : " + eventList.size(), Toast.LENGTH_LONG);
-        toast.show();
 
         // use a linear layout manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);

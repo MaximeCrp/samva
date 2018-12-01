@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
     public void createFragment() {
 
         Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "test :  "+ this.events.size(), Toast.LENGTH_LONG);
-        toast.show();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         mapsFragment = new MapsFragment();
