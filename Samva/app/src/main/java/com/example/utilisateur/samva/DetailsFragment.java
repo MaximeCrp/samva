@@ -49,6 +49,7 @@ public class DetailsFragment extends Fragment {
         address = rootview.findViewById(R.id.address);
         addButton = rootview.findViewById(R.id.addbutton);
         rcvTravels = rootview.findViewById(R.id.a_main_rcv_sams);
+        image = rootview.findViewById(R.id.image);
 
         Bundle bundle = getArguments();
         event = (Event) bundle.getSerializable("EVENT");
@@ -63,6 +64,7 @@ public class DetailsFragment extends Fragment {
         date.setText(event.getTimetable());
         placename.setText(event.getPlacename());
         address.setText(event.getAddress());
+        Picasso.with(context).load("http://jackjack.fr/wp-content/uploads/2017/04/bandeau_programmation.jpg").into(image);
 
         // use a linear layout manager
         //Context context = getContext();
@@ -76,7 +78,6 @@ public class DetailsFragment extends Fragment {
         rcvTravels.addOnItemTouchListener(new RecyclerItemClickListener(context, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-
                 //lancer la page détails du trajet et ajout d'une personne
                  activity.travelDetails(travels.getList().get(position), position);
             }

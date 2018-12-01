@@ -95,21 +95,21 @@ public class TravelFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(travel.getNbPlaces()> 0) {
-                    if(yourname.getText().toString().isEmpty()) {
-                        toast = Toast.makeText(context, "Veuillez entrer un nom", Toast.LENGTH_LONG);
-                        toast.show();
+                    if(travel.getNbPlaces()> 0) {
+                        if(yourname.getText().toString().isEmpty()) {
+                            toast = Toast.makeText(context, "Veuillez entrer un nom", Toast.LENGTH_LONG);
+                            toast.show();
 
+                        }
+                        else{
+                            travel.addPassenger(yourname.getText().toString());
+                            activity.passengerAdded(travel);
+                        }
                     }
-                    else{
-                        travel.addPassenger(yourname.getText().toString());
-                        activity.passengerAdded(travel);
-                    }
-                }
-                else {
-                    toast = Toast.makeText(context, "Ce trajet est plein", Toast.LENGTH_LONG);
-                    toast.show();
-                }
+                    else {
+                        toast = Toast.makeText(context, "Ce trajet est plein", Toast.LENGTH_LONG);
+                        toast.show();
+                 }
             }
         });
 
