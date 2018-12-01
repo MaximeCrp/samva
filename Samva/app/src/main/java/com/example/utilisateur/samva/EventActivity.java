@@ -47,7 +47,7 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<TravelList> travelListType = new GenericTypeIndicator<TravelList>() {
                 };
-                TravelList list = (TravelList) dataSnapshot.getValue(travelListType);
+                TravelList list = dataSnapshot.getValue(travelListType);
 
 
                 if(list != null) {
