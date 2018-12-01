@@ -27,10 +27,8 @@ public class StatePagerAdapterFragment extends FragmentStatePagerAdapter {
                 MapsFragment mapsFragment = new MapsFragment().newInstance(this.events);
                 return mapsFragment;
             case 2 :
-                ListFragment listFragment2 = new ListFragment().newInstance(this.events);
-                return listFragment2;
-
-
+                InfoFragment infoFragment = new InfoFragment();
+                return infoFragment;
             default :
                 return null;
         }

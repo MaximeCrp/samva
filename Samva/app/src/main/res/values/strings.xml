@@ -1,4 +1,16 @@
 <resources>
-    <string name="app_name">Samva</string>
+    <string name="app_name">SamVa</string>
     <string name="title_activity_maps">Map</string>
+    <string name="info_title">Bienvenue dans votre application SamVa !</string>
+    <string name="info_description">SamVa est la première app qui te permet de trouver tous les
+        évènement de PACA et un Sam pour ta soirée.</string>
+    <string name="info_data_origin">Données des événements extraites d\'une base openData importante :
+        https://public.opendatasoft.com/explore/dataset/evenements-publics-cibul/ </string>
+    <string name="info_data_shown">Les premières données affichées dans la liste sont les événements en PACA. Une fois un
+        événement sélectionné, on accède aux détails de celui-ci ainsi qu\'aux différents \"Sam\" s\'étant déjà désignées comme tel. Un bouton
+        permet de se rajouter comme Sam (conducteur allant à l\'événement). On peut également cliquer sur un Sam présent pour afficher ses détails
+        et se rajouter comme passager. Les passagers enregistrés ne sont pas affichés mais influent sur les places restantes à bord de la voiture.</string>
+    <string name="info_libraries">Cette alpha utilise des bibliothèques externes telles que : play-services-maps \nandroid-maps-utils
+            \nretrofit2 \ngson et converter-gson \ncardview \nfirebase</string>
+
 </resources>
