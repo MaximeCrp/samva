@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
     FragmentTransaction fragmentTransaction;
     MapsFragment mapsFragment;
     ListFragment listFragment;
-    FragmentTest testFragment;
 
     private TabLayout tabLayout;
     private StatePagerAdapterFragment statePagerAdapterFragment;
@@ -87,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
         fragmentTransaction = fragmentManager.beginTransaction();
         mapsFragment = new MapsFragment();
         listFragment = new ListFragment();
-        testFragment = new FragmentTest();
 
         Bundle bundleEvents = new Bundle();
         bundleEvents.putSerializable("EVENTS_LIST", this.events);
