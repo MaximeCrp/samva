@@ -67,9 +67,6 @@ public class CreationFragment extends Fragment {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Context context = getContext();
-                Toast toast = Toast.makeText(context, "heure de départ : " + date1.toString(), Toast.LENGTH_LONG);
-                toast.show();
 
                 travel.setDepartTime(date1);
 
