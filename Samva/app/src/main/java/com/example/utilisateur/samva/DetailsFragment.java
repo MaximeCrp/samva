@@ -54,7 +54,11 @@ public class DetailsFragment extends Fragment {
         Context context = getContext();
 
         title.setText(event.getTitle());
-        date.setText(event.getTimetable());
+        String text="";
+        for(int i=0 ; i<event.getDate().length ; i++) {
+            text+= event.getDate()[i][0] + "\n" + event.getDate()[i][1] + "\n";
+        }
+        date.setText(text);
         placename.setText(event.getPlacename());
         address.setText(event.getAddress());
         Picasso.with(context).load("http://jackjack.fr/wp-content/uploads/2017/04/bandeau_programmation.jpg").into(image);

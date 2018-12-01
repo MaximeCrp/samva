@@ -21,6 +21,7 @@ public class Event implements Serializable, ClusterItem {
     private ArrayList<Double> latlon = new ArrayList<Double>();
 
 
+
     Event() {}
 
     @Override
@@ -43,6 +44,11 @@ public class Event implements Serializable, ClusterItem {
 
     public String getTimetable() {
         return timetable;
+    }
+
+    public void setTimetable(String timetable) {
+        this.timetable = timetable;
+        putDate(timetable);
     }
 
     public String getAddress() {
@@ -95,6 +101,7 @@ public class Event implements Serializable, ClusterItem {
         else {
             enter[0] = timetable;
         }
+        String[][] enter2 = new String[enter.length][2];
         this.date = new String[enter.length][2];
 
         for (int i = 0; i < enter.length; i++) {
