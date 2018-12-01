@@ -36,7 +36,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         holder.txvName.setText(eventToDisplay.getTitle());
         String text="";
         for(int i=0 ; i<eventToDisplay.getDate().length ; i++) {
-            text+= eventToDisplay.getDate()[i][0] + " - " + eventToDisplay.getDate()[i][1] + "\n";
+            text += "Début : " + eventToDisplay.getDate()[i][0] + "\nFin : " + eventToDisplay.getDate()[i][1] + "\n";
         }
         holder.txvDate.setText(text);
 
