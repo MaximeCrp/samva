@@ -28,9 +28,9 @@ public class ListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.list_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.list_fragment, container, false);
 
-        rcvEvents = rootview.findViewById(R.id.a_main_rcv_events);
+        rcvEvents = rootView.findViewById(R.id.a_main_rcv_events);
 
         Serializable ser = getArguments().getSerializable(ARG_EVENTS);
         eventList = (ArrayList<Event>) ser;
@@ -53,7 +53,7 @@ public class ListFragment extends Fragment {
             }
         }));
 
-        return rootview;
+        return rootView;
     }
 
     public void onAttach(Context context) {
