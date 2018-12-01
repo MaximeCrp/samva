@@ -42,18 +42,18 @@ public class TravelFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootview = inflater.inflate(R.layout.fragment_travel, container, false);
-        title = rootview.findViewById(R.id.title);
-        sam = rootview.findViewById(R.id.sam);
-        logo_sam = rootview.findViewById(R.id.logo_sam);
-        passengers_names = rootview.findViewById(R.id.passengers_names);
-        nbplaces = rootview.findViewById(R.id.nb_places);
-        depart_place = rootview.findViewById(R.id.depart_place);
-        depart_time = rootview.findViewById(R.id.depart_time);
-        return_place = rootview.findViewById(R.id.return_place);
-        return_time = rootview.findViewById(R.id.return_time);
-        yourname = rootview.findViewById(R.id.your_name);
-        addButton = rootview.findViewById(R.id.add);
+        View rootView = inflater.inflate(R.layout.fragment_travel, container, false);
+        title = rootView.findViewById(R.id.title);
+        sam = rootView.findViewById(R.id.sam);
+        logo_sam = rootView.findViewById(R.id.logo_sam);
+        passengers_names = rootView.findViewById(R.id.passengers_names);
+        nbplaces = rootView.findViewById(R.id.nb_places);
+        depart_place = rootView.findViewById(R.id.depart_place);
+        depart_time = rootView.findViewById(R.id.depart_time);
+        return_place = rootView.findViewById(R.id.return_place);
+        return_time = rootView.findViewById(R.id.return_time);
+        yourname = rootView.findViewById(R.id.your_name);
+        addButton = rootView.findViewById(R.id.add);
 
         Bundle bundle = getArguments();
         travel = (Travel) bundle.getSerializable("TRAVEL");
@@ -109,7 +109,7 @@ public class TravelFragment extends Fragment {
         });
 
 
-        return rootview;
+        return rootView;
     }
 
     public void onAttach(Context context) {
