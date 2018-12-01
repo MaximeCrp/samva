@@ -60,14 +60,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<List<Event>> eventListType = new GenericTypeIndicator<List<Event>>() {};
-                //List<Event> serverEvents = (List<Event>) dataSnapshot.getValue(eventListType);
                 eventbis = (List<Event>) dataSnapshot.getValue(eventListType);
 
                 for(Event e : eventbis) {
                     events.add(e);
                 }
-
-                //createFragment();
                 initLayout();
 
             }
@@ -104,25 +101,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
     }
 
     public void details(Event event) {
-/*
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, this.testFragment);
-        fragmentTransaction.addToBackStack("tag");
-        fragmentTransaction.commit();
-*/
-
-
         Intent intent = new Intent(this, EventActivity.class);
         intent.putExtra("EVENT_CLICK", event);
         this.startActivity(intent);
     }
 
     private void initLayout() {
-        //Ajouter la toolbar
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-
         //Init tabLayout
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
@@ -135,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityCallb
         Drawable info = ContextCompat.getDrawable(this, R.drawable.ic_info);
         info.setColorFilter(getResources().getColor(colorARGB), PorterDuff.Mode.SRC_ATOP);
 
-        //Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.getImageId(), null);
         tabLayout.addTab(createTab("List", list));
         tabLayout.addTab(createTab("Map", maps));
         tabLayout.addTab(createTab("Info", info));

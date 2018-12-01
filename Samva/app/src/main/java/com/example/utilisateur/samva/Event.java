@@ -19,8 +19,6 @@ public class Event implements Serializable, ClusterItem {
     private String image;
     private String placename;
     private ArrayList<Double> latlon = new ArrayList<Double>();
-    //private Date date;
-
 
 
     Event() {}
@@ -117,10 +115,6 @@ public class Event implements Serializable, ClusterItem {
 
         for (int i = 0; i < enter.length; i++) {
             String[] date1 = enter[i].split(" ");
-            //enter2[i][0] = date1[0];
-            //enter2[i][1] = date1[1];
-            //enter2[i][0].replace("T"," ");
-            //enter2[i][1].replace("T"," ");
             this.date[i][0] = date1[0].replace("T"," à ");
             this.date[i][1] = date1[1].replace("T"," à ");
         }

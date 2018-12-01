@@ -52,9 +52,6 @@ public class DetailsFragment extends Fragment {
         travels = (TravelList) bundle.getSerializable("TRAVEL_LIST");
 
         Context context = getContext();
-        /*Toast toast = Toast.makeText(context, "trajet reçu : "+ travels.getTitle(), Toast.LENGTH_LONG);
-        toast.show();*/
-
 
         title.setText(event.getTitle());
         date.setText(event.getTimetable());
@@ -63,7 +60,6 @@ public class DetailsFragment extends Fragment {
         Picasso.with(context).load("http://jackjack.fr/wp-content/uploads/2017/04/bandeau_programmation.jpg").into(image);
 
         // use a linear layout manager
-        //Context context = getContext();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         rcvTravels.setLayoutManager(layoutManager);
 

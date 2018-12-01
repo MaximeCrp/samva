@@ -53,12 +53,6 @@ public class EventActivity extends AppCompatActivity implements MyActivityCallba
                 if(list != null) {
                     travelList.setList(list.getList());
                 }
-
-                /*
-                Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, "requête réussie, nb de travels : " + travelList.getList().size(), Toast.LENGTH_LONG);
-                toast.show();*/
-
                 createFragment();
             }
 
@@ -118,11 +112,6 @@ public void createFragment() {
 
         myRef = database.getReference("travels/"+name);
         myRef.setValue(travelList);
-/*
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "trajet ajouté : "+ travel.getTitle() + " - " + travel.getSam(), Toast.LENGTH_LONG);
-        toast.show();*/
-
     }
 
     public void travelDetails(Travel travel, int position) {
@@ -138,7 +127,6 @@ public void createFragment() {
         Bundle bundleEvents = new Bundle();
         bundleEvents.putSerializable("TRAVEL", travel);
         travelFragment.setArguments(bundleEvents);
-
     }
 
     public void passengerAdded(Travel travel) {
@@ -154,7 +142,5 @@ public void createFragment() {
 
         myRef = database.getReference("travels/"+name);
         myRef.setValue(travelList);
-
-
     }
 }

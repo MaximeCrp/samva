@@ -33,11 +33,6 @@ public class ListFragment extends Fragment {
 
         rcvEvents = rootview.findViewById(R.id.a_main_rcv_events);
 
-        /*
-        Bundle bundleEvents = new Bundle();
-        bundleEvents= getArguments();
-        eventList = (ArrayList<Event>) bundleEvents.getSerializable("EVENTS_LIST");
-        */
         Serializable ser = getArguments().getSerializable(ARG_EVENTS);
         eventList = (ArrayList<Event>) ser;
 
@@ -75,7 +70,6 @@ public class ListFragment extends Fragment {
     }
 
     public static ListFragment newInstance(ArrayList<Event> events) {
-
         Bundle args = new Bundle();
         args.putSerializable(ARG_EVENTS, events);
         ListFragment fragment = new ListFragment();

@@ -67,17 +67,6 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMarkerClickLis
                         gMap = googleMap;
                         setUpClusterer("0,0");
                         eventClusterManager.cluster();
-                        /*
-                        googleMap.getUiSettings().setAllGesturesEnabled(true);
-                        LatLng gardanne = new LatLng(43.45, 5.4667);
-                        googleMap.addMarker(new MarkerOptions()
-                                .position(gardanne)
-                                .title("Best Event in Town")
-                                .snippet("Gala des ISMINs"));
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(gardanne).zoom(15.0f).build();
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
-                        googleMap.moveCamera(cameraUpdate);
-                        */
                     }
                 }
             });

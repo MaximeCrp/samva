@@ -59,8 +59,6 @@ public class TravelFragment extends Fragment {
         travel = (Travel) bundle.getSerializable("TRAVEL");
 
         context = getContext();
-        /*toast = Toast.makeText(context, "passagers reçus : "+ travel.getPassengers().size(), Toast.LENGTH_LONG);
-        toast.show();*/
 
         title.setText(travel.getTitle());
         sam.setText(travel.getSam());
